@@ -377,10 +377,10 @@ please preview your site before committing, and make sure to run
   {% endif %}
   workshop,
   you will need access to the software described below.
-  In addition, you will need to ** Download the setup folder ** and make sure you have an up-to-date web browser.
+  In addition, you will need to **Download the setup folder** and make sure you have an up-to-date web browser.
 </p>
 <h3> Workshop Files </h3>
-<p> Please download <a href="https://github.com/UCSBCarpentry/2021-01-21-SWC-Bash-online/blob/gh-pages/data/data-shell.zip">this zip folder</a> and un-zip or "extract" to your ** Desktop ** BEFORE the workshop begins
+<p> Please download <a href="https://github.com/UCSBCarpentry/2021-01-21-SWC-Bash-online/blob/gh-pages/data/data-shell.zip">this zip folder</a> and un-zip or "extract" to your **Desktop** BEFORE the workshop begins
 </p>
 <h3> Software Installation </h3>
 <p>
