@@ -160,12 +160,6 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
-> ## Clearing your terminal
->
-> If your screen gets too cluttered, you can clear your terminal using the
-> `clear` command. You can still access previous commands using <kbd>↑</kbd>
-> and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.
-{: .callout}
 
 Here,
 we can see that our home directory contains only **sub-directories**.
@@ -222,6 +216,13 @@ Library/              Users/
 Network/              Volumes/
 ~~~
 {: .output}
+
+> ## Clearing your terminal
+>
+> If your screen gets too cluttered, you can clear your terminal using the
+> `clear` command. You can still access previous commands using <kbd>↑</kbd>
+> and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.
+{: .callout}
 
 ### Getting help
 
