@@ -606,7 +606,7 @@ $ pwd
 ~~~
 {: .output}
 
-{% endcomment %}
+{% comment %}
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want
 to display it, we can add the `-a` option to `ls -F`:
