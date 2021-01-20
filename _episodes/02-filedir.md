@@ -606,6 +606,8 @@ $ pwd
 ~~~
 {: .output}
 
+{% endcomment %}
+
 The special directory `..` doesn't usually show up when we run `ls`.  If we want
 to display it, we can add the `-a` option to `ls -F`:
 
@@ -643,6 +645,8 @@ equivalent to `ls -Fa`.
 > configuration files from cluttering the terminal when a standard `ls` command
 > is used.
 {: .callout}
+
+{% endcomment %}
 
 > ## Orthogonality
 >
@@ -775,6 +779,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > {: .solution}
 {: .challenge}
 
+{% comment %}
 > ## Relative Path Resolution
 >
 > Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
@@ -821,7 +826,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > >  3. Yes: uses the absolute path explicitly.
 > {: .solution}
 {: .challenge}
-
+{% endcomment %}
 ### Nelle's Pipeline: Organizing Files
 
 Knowing this much about files and directories,
