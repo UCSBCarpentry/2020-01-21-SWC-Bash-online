@@ -28,6 +28,12 @@ As such they are key to productivity improvements through automation.
 Similar to wildcards and tab completion, using loops also reduces the
 amount of typing required (and hence reduces the number of typing mistakes).
 
+### loop syntax
+
+![loop-anatomy](../fig/loop-anatomy.png)
+
+keyword _for_
+
 Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
 `unicorn.dat`.
 For this example, we'll use the `creatures` directory which only has three example files,
