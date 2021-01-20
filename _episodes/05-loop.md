@@ -30,9 +30,28 @@ amount of typing required (and hence reduces the number of typing mistakes).
 
 ### loop syntax
 
+This is what a _for_ loop looks like in bash.
+
 ![loop-anatomy](../fig/loop-anatomy.png)
 
-keyword _for_
+It starts with the keyword _for_ next you choose a name for the loop variable.  Here we use _colors_. then another keyword _in_ and lastly a list of space delimited items to loop over.
+
+Now the loop is setup and we're ready to begin.  the keyword _do_ starts the loop.  The third line will be run as many times as you have items.  In our code we have four colors so the loop will be run four times.  the keyword _done_ closes the loop.
+
+So let's try writing and running this loop:
+
+```
+for colors in brown blue yellow green
+do
+echo $colors
+done
+```
+{: .language-bash}
+ 
+
+In the third line of our loop we're using `echo` to output the current value of our `$colors` variable to the ... FIXME
+
+
 
 Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
 `unicorn.dat`.
