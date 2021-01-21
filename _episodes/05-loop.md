@@ -34,18 +34,18 @@ This is what a _for_ loop looks like in bash.
 
 ![loop-anatomy](../fig/loop-anatomy.png)
 
-It starts with the keyword _for_ next you choose a name for the loop variable.  Here we use _colors_. then another keyword _in_ and lastly a list of space delimited items to loop over.
+It starts with the keyword `for`. Next you choose a name for the loop variable.  Here we use `colors`. then another keyword `in` and lastly a list of space delimited items to loop over.
 
-Now the loop is setup and we're ready to begin.  the keyword _do_ starts the loop.  The third line will be run as many times as you have items.  In our code we have four colors so the loop will be run four times.  the keyword _done_ closes the loop.
+Now the loop is setup and we're ready to begin looping. The keyword `do` starts the loop.  The line(s) between `do` and `done` will be run as many times as you have items.  In our example code we have four colors so the loop will be run four times.  the keyword `done` closes the loop.
 
 So let's try writing and running this loop:
 
-```
+~~~
 for colors in brown blue yellow green
 do
 echo $colors
 done
-```
+~~~
 {: .language-bash}
  
 The `do` keyword marks the beginning of the loop.
@@ -55,53 +55,6 @@ With each iteration of the loop the value of the `$colors` variable is set to th
 In the third line of our loop we're using `echo` to output the current value of our `$colors` variable to the screen.  
 
 The `done` keyword signals the end of the loop and tells the shell to repeat the loop with the next item assigned to the `$colors` variable.
-
-
-
-Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
-`unicorn.dat`.
-For this example, we'll use the `creatures` directory which only has three example files,
-but the principles can be applied to many many more files at once.
-
-The structure of these files is the same: the common name, classification, and updated date are
-presented on the first three lines, with DNA sequences on the following lines.
-Let's look at the files:
-
-```
-head -n 5 basilisk.dat minotaur.dat unicorn.dat
-```
-{: .language-bash}
-
-We would like to print out the classification for each species, which is given on the second
-line of each file.
-For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`.
-We’ll use a loop to solve this problem, but first let’s look at the general form of a loop:
-
-```
-for thing in list_of_things
-do
-    operation_using $thing    # Indentation within the loop is not required, but aids legibility
-done
-```
-{: .language-bash}
-
-and we can apply this to our example like this:
-
-```
-$ for filename in basilisk.dat minotaur.dat unicorn.dat
-> do
->    head -n 2 $filename | tail -n 1
-> done
-```
-{: .language-bash}
-
-```
-CLASSIFICATION: basiliscus vulgaris
-CLASSIFICATION: bos hominus
-CLASSIFICATION: equus monoceros
-```
-{: .output}
-
 
 > ## Follow the Prompt
 >
@@ -114,30 +67,22 @@ CLASSIFICATION: equus monoceros
 When the shell sees the keyword `for`,
 it knows to repeat a command (or group of commands) once for each item in a list.
 Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
-the **variable**, and the commands inside the loop are executed, before moving on to
-the next item in the list.
-Inside the loop,
-we call for the variable's value by putting `$` in front of it.
+the **variable**, and the commands inside the loop are executed, before moving on to the next item in the list.
+Inside the loop, we call for the variable's value by putting `$` in front of it.
 The `$` tells the shell interpreter to treat
 the variable as a variable name and substitute its value in its place,
 rather than treat it as text or an external command.
 
-In this example, the list is three filenames: `basilisk.dat`, `minotaur.dat`, and `unicorn.dat`.
-Each time the loop iterates, it will assign a file name to the variable `filename`
-and run the `head` command.
+In this example, the list is our four colors: `brown`, `blue`, `yellow`, and `green`.
+Each time the loop iterates, it will assign sucessive colors to the variable `$colors`.  
 The first time through the loop,
-`$filename` is `basilisk.dat`.
-The interpreter runs the command `head` on `basilisk.dat`
-and pipes the first two lines to the `tail` command,
-which then prints the second line of `basilisk.dat`.
-For the second iteration, `$filename` becomes
-`minotaur.dat`. This time, the shell runs `head` on `minotaur.dat`
-and pipes the first two lines to the `tail` command,
-which then prints the second line of `minotaur.dat`.
-For the third iteration, `$filename` becomes
-`unicorn.dat`, so the shell runs the `head` command on that file,
-and `tail` on the output of that.
-Since the list was only three items, the shell exits the `for` loop.
+`$colors` is `brown`.
+The interpreter runs the command `echo $colors` generating our first line of output.
+For the second iteration, `$colors` becomes
+`blue`. This time, the shell again runs `echo $colors` but the value of our `$colors` variable has now changed to "blue".
+
+The process is repeated for the third and fourth iteration of the loop.
+Since the list was only four items, the shell then exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
 >
@@ -153,39 +98,23 @@ Since the list was only three items, the shell exits the `for` loop.
 > the shell should redirect output or get the value of a variable.
 {: .callout}
 
-When using variables it is also
-possible to put the names into curly braces to clearly delimit the variable
-name: `$filename` is equivalent to `${filename}`, but is different from
-`${file}name`. You may find this notation in other people's programs.
-
-We have called the variable in this loop `filename`
+We have called the variable in this loop `colors`
 in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
 ~~~
-$ for x in basilisk.dat minotaur.dat unicorn.dat
-> do
->    head -n 2 $x | tail -n 1
-> done
-~~~
-{: .language-bash}
-
-or:
-
-~~~
-$ for temperature in basilisk.dat minotaur.dat unicorn.dat
-> do
->    head -n 2 $temperature | tail -n 1
-> done
+for x in brown blue yellow green
+do
+echo $x
+done
 ~~~
 {: .language-bash}
 
 it would work exactly the same way.
 *Don't do this.*
 Programs are only useful if people can understand them,
-so meaningless names (like `x`) or misleading names (like `temperature`)
-increase the odds that the program won't do what its readers think it does.
+so meaningless names (like `x`) increase the odds that the program won't do what its readers think it does.
 
 > ## Variables in Loops
 >
@@ -651,6 +580,10 @@ and uses `cat stats-NENE01729B.txt`
 to examine one of the output files.
 It looks good,
 so she decides to get some coffee and catch up on her reading.
+
+
+> When using variables it is also possible to put the names into curly braces to clearly delimit the variable name: `$colors` is equivalent to `${colors}`. You may find this notation in other people's programs.
+> {: .note}
 
 > ## Those Who Know History Can Choose to Repeat It
 >
