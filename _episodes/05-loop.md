@@ -48,8 +48,13 @@ done
 ```
 {: .language-bash}
  
+The `do` keyword marks the beginning of the loop.
 
-In the third line of our loop we're using `echo` to output the current value of our `$colors` variable to the ... FIXME
+With each iteration of the loop the value of the `$colors` variable is set to the next item from the list.
+
+In the third line of our loop we're using `echo` to output the current value of our `$colors` variable to the screen.  
+
+The `done` keyword signals the end of the loop and tells the shell to repeat the loop with the next item assigned to the `$colors` variable.
 
 
 
