@@ -234,56 +234,6 @@ so meaningless names (like `x`) increase the odds that the program won't do what
 {: .challenge}
 
 
-Let's continue with our example in the `data-shell/creatures` directory.
-Here's a slightly more complicated loop:
-
-~~~
-$ for filename in *.dat
-> do
->     echo $filename
->     head -n 100 $filename | tail -n 20
-> done
-~~~
-{: .language-bash}
-
-The shell starts by expanding `*.dat` to create the list of files it will process.
-The **loop body**
-then executes two commands for each of those files.
-The first command, `echo`, prints its command-line arguments to standard output.
-For example:
-
-~~~
-$ echo hello there
-~~~
-{: .language-bash}
-
-prints:
-
-~~~
-hello there
-~~~
-{: .output}
-
-In this case,
-since the shell expands `$filename` to be the name of a file,
-`echo $filename` prints the name of the file.
-Note that we can't write this as:
-
-~~~
-$ for filename in *.dat
-> do
->     $filename
->     head -n 100 $filename | tail -n 20
-> done
-~~~
-{: .language-bash}
-
-because then the first time through the loop,
-when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
-Finally,
-the `head` and `tail` combination selects lines 81-100
-from whatever file is being processed
-(assuming the file has at least 100 lines).
 
 > ## Spaces in Names
 >
