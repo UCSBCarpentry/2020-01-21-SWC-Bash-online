@@ -233,60 +233,6 @@ so meaningless names (like `x`) increase the odds that the program won't do what
 > {: .solution}
 {: .challenge}
 
-> ## Saving to a File in a Loop - Part One
->
-> In the `data-shell/molecules` directory, what is the effect of this loop?
->
-> ~~~
-> for alkanes in *.pdb
-> do
->     echo $alkanes
->     cat $alkanes > alkanes.pdb
-> done
-> ~~~
-> {: .language-bash}
->
-> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
->     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
->     concatenated and saved to a file called `alkanes.pdb`.
-> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
->     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 4.  None of the above.
->
-> > ## Solution
-> > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
-> > However, the file gets overwritten on each loop interation, so the final content of `alkanes.pdb`
-> > is the text from the `propane.pdb` file.
-> {: .solution}
-{: .challenge}
-
-> ## Saving to a File in a Loop - Part Two
->
-> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
->
-> ~~~
-> for datafile in *.pdb
-> do
->     cat $datafile >> all.pdb
-> done
-> ~~~
-> {: .language-bash}
->
-> 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
->     `pentane.pdb` would be concatenated and saved to a file called `all.pdb`.
-> 2.  The text from `ethane.pdb` will be saved to a file called `all.pdb`.
-> 3.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
->     and `propane.pdb` would be concatenated and saved to a file called `all.pdb`.
-> 4.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
->     and `propane.pdb` would be printed to the screen and saved to a file called `all.pdb`.
->
-> > ## Solution
-> > 3 is the correct answer. `>>` appends to a file, rather than overwriting it with the redirected
-> > output from a command.
-> > Given the output from the `cat` command has been redirected, nothing is printed to the screen.
-> {: .solution}
-{: .challenge}
 
 Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
