@@ -409,47 +409,6 @@ so she decides to get some coffee and catch up on her reading.
 > When using variables it is also possible to put the names into curly braces to clearly delimit the variable name: `$colors` is equivalent to `${colors}`. You may find this notation in other people's programs.
 > {: .note}
 
-> ## Those Who Know History Can Choose to Repeat It
->
-> Another way to repeat previous work is to use the `history` command to
-> get a list of the last few hundred commands that have been executed, and
-> then to use `!123` (where '123' is replaced by the command number) to
-> repeat one of those commands. For example, if Nelle types this:
->
-> ~~~
-> $ history | tail -n 5
-> ~~~
-> {: .language-bash}
-> ~~~
->   456  ls -l NENE0*.txt
->   457  rm stats-NENE01729B.txt.txt
->   458  bash goostats NENE01729B.txt stats-NENE01729B.txt
->   459  ls -l NENE0*.txt
->   460  history
-> ~~~
-> {: .output}
->
-> then she can re-run `goostats` on `NENE01729B.txt` simply by typing
-> `!458`.
-{: .callout}
-
-> ## Other History Commands
->
-> There are a number of other shortcut commands for getting at the history.
->
-> - <kbd>Ctrl</kbd>+<kbd>R</kbd> enters a history search mode 'reverse-i-search' and finds the
-> most recent command in your history that matches the text you enter next.
-> Press <kbd>Ctrl</kbd>+<kbd>R</kbd> one or more additional times to search for earlier matches.
-> You can then use the left and right arrow keys to choose that line and edit
-> it then hit <kbd>Return</kbd> to run the command.
-> - `!!` retrieves the immediately preceding command
-> (you may or may not find this more convenient than using <kbd>↑</kbd>)
-> - `!$` retrieves the last word of the last command.
-> That's useful more often than you might expect: after
-> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
-> `less !$` to look at the file `stats-NENE01729B.txt`, which is
-> quicker than doing <kbd>↑</kbd> and editing the command-line.
-{: .callout}
 
 > ## Doing a Dry Run
 >
